@@ -1,4 +1,5 @@
 import firebase_admin
+import json
 import os
 import requests
 import streamlit as st
@@ -7,8 +8,12 @@ from firebase_admin import credentials, auth
 
 load_dotenv()
 
+encoded_key = os.getenv("SECRET_KEY")
+
+json_key = json.loads(base64.b64decode(encoded_key).decode('utf-8'))
+
 if not firebase_admin._apps:
-    cred = credentials.Certificate('servicekey.json')
+    cred = credentials.Certificate('servicekey.json' or json_key)
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://fish-farm-ed34b-default-rtdb.firebaseio.com/'
     })
