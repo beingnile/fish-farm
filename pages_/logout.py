@@ -1,5 +1,4 @@
 import streamlit as st
-from utilities import auth
 
 
 st.session_state.user = None

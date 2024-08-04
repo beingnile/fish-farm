@@ -1,7 +1,6 @@
 import streamlit as st
 from utilities.auth import create_user
 
-# Custom CSS styles
 css_styles = """
 /* Style your containers */
 [data-testid="stVerticalBlock"] > [style*="flex-direction: column;"] > [data-testid="stVerticalBlock"] {
