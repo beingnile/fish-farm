@@ -1,0 +1,9 @@
+[[pages]]
+path = "pages_/login.py"
+name = "Login"
+icon = ":material/login:"
+
+[[pages]]
+path = "pages_/signup.py"
+name = "Signup"
+icon = ":material/person_add:"

@@ -1,0 +1,9 @@
+[[pages]]
+path = "pages_/dashboard.py"
+name = "Dashboard"
+icon = ":material/dashboard:"
+
+[[pages]]
+path = "pages_/logout.py"
+name = "Logout"
+icon = ":material/logout:"
