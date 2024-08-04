@@ -14,7 +14,7 @@ import sys
 # Configurations
 FIREBASE_DB_URL = 'https://fish-farm-ed34b-default-rtdb.firebaseio.com'
 TIME_INTERVAL = 5  # Interval in seconds between records
-TEMPERATURE_MIN = 15  # Minimum temperature
+TEMPERATURE_MIN = 20  # Minimum temperature
 TEMPERATURE_MAX = 30  # Maximum temperature
 PH_MIN = 6.5  # Minimum pH
 PH_MAX = 8.5  # Maximum pH
