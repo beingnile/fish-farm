@@ -2,3 +2,5 @@
 .app.py
 .Dashboard.py
 __pycache__/
+servicekey.json
+accountservicekey.json
