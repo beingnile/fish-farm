@@ -1,3 +1,4 @@
+import base64
 import firebase_admin
 import json
 import os
