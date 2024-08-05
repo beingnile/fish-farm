@@ -12,7 +12,6 @@ from firebase_admin import credentials, db
 from streamlit_folium import st_folium
 
 
-# Initialize Firebase
 if not firebase_admin._apps:
     cred = credentials.Certificate('servicekey.json')
     firebase_admin.initialize_app(cred, {
@@ -54,7 +53,7 @@ def show_dashboard():
     <style>
     .dashboard-title {
         text-align: center;
-        color: #F63366;
+        color: #3F89AB;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -66,7 +65,7 @@ def show_dashboard():
     sensor_data = get_sensor_data(my_id)
 
     if sensor_data:
-        st.markdown("<hr>", unsafe_allow_html=True)  # Add horizontal line for separation
+        st.markdown("<hr>", unsafe_allow_html=True)
         decrypted_data = []
         for key, value in sensor_data.items():
             data = decrypt(value)
@@ -88,7 +87,7 @@ def show_dashboard():
             col1, col2, col3 = st.columns(3, gap='large')
             with col1:
                 st.info("Latest Water Temperature")
-                st.metric("", f"{first_row['temperature']} °C")
+                st.metric("", f"{round(first_row['temperature'], 2)} °C")
             with col2:
                 st.info("Average Water Temperature")
                 st.metric("", f"{avg_temp} °C")
@@ -96,7 +95,7 @@ def show_dashboard():
                 st.info("Temperature Range")
                 st.metric("", f"{temp_range} °C")
 
-            st.markdown("<hr>", unsafe_allow_html=True)  # Add horizontal line for separation
+            st.markdown("<hr>", unsafe_allow_html=True)
 
             st.subheader("Filter Data by Date Range")
             start_date = st.date_input("Start date", value=pd.to_datetime("2024-08-01"))
@@ -106,7 +105,7 @@ def show_dashboard():
             filtered_df = df[(df['timestamp'] >= start_date) & (df['timestamp'] <= end_date)]
             st.dataframe(filtered_df)
 
-            st.markdown("<hr>", unsafe_allow_html=True)  # Add horizontal line for separation
+            st.markdown("<hr>", unsafe_allow_html=True)
 
             st.subheader("Summary Statistics")
             if not filtered_df.empty:
@@ -118,7 +117,7 @@ def show_dashboard():
                     st.write("pH Statistics: This section provides summary statistics for pH levels.")
                     st.write(filtered_df['ph'].describe())
 
-            st.markdown("<hr>", unsafe_allow_html=True)  # Add horizontal line for separation
+            st.markdown("<hr>", unsafe_allow_html=True)
 
             st.subheader("Temperature Over Time")
             st.write("Temperature Over Time: This line chart displays how the water temperature has changed over the selected date range.")
@@ -145,7 +144,7 @@ def show_dashboard():
             fig_scatter = px.scatter_matrix(filtered_df, dimensions=['temperature', 'temp1', 'temp2', 'ph'], title='Temperature vs pH Scatter Plot', labels={'temperature': 'Temperature (°C)', 'ph': 'pH Level'})
             st.plotly_chart(fig_scatter, use_container_width=True)
 
-            st.markdown("<hr>", unsafe_allow_html=True)  # Add horizontal line for separation
+            st.markdown("<hr>", unsafe_allow_html=True)
 
             st.subheader("Temperature Comparison")
             st.write("Temperature Comparison: This line chart compares the water temperature recorded by different sensors (temperature, temp1, temp2) over time.")
@@ -167,7 +166,7 @@ def show_dashboard():
             )
             st.plotly_chart(fig_temp_diff, use_container_width=True)
 
-            st.markdown("<hr>", unsafe_allow_html=True)  # Add horizontal line for separation
+            st.markdown("<hr>", unsafe_allow_html=True)
 
             col1, col2 = st.columns(2, gap='large')
             with col1:
@@ -197,9 +196,8 @@ def show_dashboard():
 
                 3. **Educate Your Team:** Ensure that everyone involved in managing your farm understand best practices for data security and hardware maintainence. Regular training and awareness programs can help in minimizing human errors that could lead to data breaches.""")
 
-            st.markdown("<hr>", unsafe_allow_html=True)  # Add horizontal line for separation
+            st.markdown("<hr>", unsafe_allow_html=True)
 
-            # Data Export
             st.subheader("Export Data")
             st.write("You can download the filtered data as a CSV file for further analysis.")
             st.download_button(

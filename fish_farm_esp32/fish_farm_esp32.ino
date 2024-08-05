@@ -31,7 +31,7 @@ const char *publicKey = "-----BEGIN PUBLIC KEY-----\n" \
 
 #define ANALOG_PIN 27
 
-const String USER_ID = "";
+const String USER_ID = "WgamA6avjxRUSs4hb4lAPQbNkij1";
 
 // Firebase project details
 #define FIREBASE_HOST "https://fish-farm-3747d-default-rtdb.firebaseio.com"
@@ -124,7 +124,7 @@ String encrypt(String plainText) {
   // Encode encrypted data in base64
   char encoded[1024];
   int encodedLen = base64_encode(encoded, (char *)encrypted, olen);
-  return String(encoded);
+  return String(encoded); //Can accomodate printable & unprintable characters
 }
 
 void loop() {

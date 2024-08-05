@@ -40,18 +40,16 @@ css_styles = """
     width: 60%;
     margin: 0 auto;
     padding: 8px;
-    border: none;
     border-radius: 8px;
     font-size: 1em;
-    // background-color: #F63366;
-    // text-color: black;
     cursor: pointer;
     margin-top: 10px;
     display: flex;
     justify-content: center;
 }
-[data-testid="baseButton-secondaryFormSubmit"] button:hover {
-    box-shadow: 15%;
+[data-testid="baseButton-secondaryFormSubmit"]:hover {
+    color: #25A2D4;
+    border: 1px solid #25A2D4;
 }
 
 .login-link {
@@ -79,7 +77,7 @@ def show_signup_page():
     .signup-container h1 {
         font-size: 2.5em;
         margin-bottom: 5px;
-        color: #F63366;
+        color: #3F89AB;
     }
     @media (max-width: 768px) {
         .signup-container h1 {

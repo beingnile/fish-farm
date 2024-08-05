@@ -9,7 +9,7 @@ def menu():
     # Show a navigation menu for authenticated users
     st.set_page_config(
         layout="wide",
-        page_title='Main',
+        page_title='AquaSee Data',
         page_icon="💧"
     )
 

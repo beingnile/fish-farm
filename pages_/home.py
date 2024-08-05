@@ -7,11 +7,21 @@ def wspace(num=5):
 
 
 def main_page():
+    st.image("images/logo.png", width=200)
     st.markdown("""
     <style>
     h1 {
-        color: #F63366
+        color: #3F89AB;
+        padding: 0;
     }
+
+    [data-testid="stImage"] {
+        display: block;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .landing-container {
         display: flex;
         flex-direction: column;
@@ -27,6 +37,7 @@ def main_page():
         margin-bottom: 5px;
     }
     .hero-section h1 {
+        width: 50%
         font-size: 3em;
         margin: 0;
     }
@@ -50,15 +61,21 @@ def main_page():
             font-size: 1em;
             margin-bottom: 0;
         }
+        .hero-section {
+            width: 50%;
+        }
     }
     .row-widget.stButton {
         text-align: center;
     }
+    [data-testid="baseButton-secondary"]:hover {
+        color: #25A2D4;
+        border: 1px solid #25A2D4;
+    }
     </style>
     <div class="landing-container">
         <div class="hero-section">
-            <h1>AquaSee Data</h1>
-            <p>Securely Manage Your Fish Farm With Our Advanced Platform</p>
+            <h1>Securely Manage Your Fish Farm With Our Advanced Platform</h1>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -129,7 +146,7 @@ def main_page():
     with col1:
         st.header("Our Mission")
         wspace(3)
-        st.write("""
+        st.info("""
         At AquaSee, our mission is to empower fish farmers with the tools they need to optimize their operations and maximize productivity securely.
         We believe that by leveraging technology, we can create a sustainable future for the aquaculture industry.
         We aim to reduce data breaches in the aquaculture industry by 14% by the next 5 years.
@@ -138,7 +155,7 @@ def main_page():
     with col2:
         st.header("Why Choose Us?")
         wspace(3)
-        st.write("""
+        st.info("""
         - **Industry Expertise**: With years of experience in the aquaculture sector, our team understands the unique security challenges faced by fish farmers.
 
         - **Innovative Solutions**: Our platform is built with the latest technology to ensure reliable and accurate and secure monitoring of your fish farm.
@@ -149,9 +166,9 @@ def main_page():
         """)
 
     with col3:
-        st.subheader("Contact Us")
+        st.header("Contact Us")
         wspace(3)
-        st.write("""
+        st.info("""
         **Phone**: +254 721-311-522\n
         **Email**: support@aquadata.com\n
         **Address**: 123 Fish Farm Road, Aquatic City, Fishland\n
