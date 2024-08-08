@@ -47,6 +47,7 @@ css_styles = """
     display: flex;
     justify-content: center;
 }
+
 [data-testid="baseButton-secondaryFormSubmit"]:hover {
     color: #25A2D4;
     border: 1px solid #25A2D4;

@@ -44,7 +44,7 @@ def generate_realistic_data(start_time, user_id):
 
     while True:
         data = {}
-        timestamp = start_time  # Use the controlled timestamp
+        timestamp = datetime.now()
 
         # Simulate temperature fluctuations
         temperature = temperature * PERSISTENCE + random.uniform(-0.1, 0.1) * (1 - PERSISTENCE)
